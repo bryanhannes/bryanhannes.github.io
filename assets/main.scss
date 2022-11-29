@@ -1,0 +1,139 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+$font_family: 'montserrat', sans-serif;
+
+
+.author-thumb{
+  border-radius: 50%;
+  width:40px;
+  height:40px;
+}
+.site-header {
+  border: none;
+  border-bottom: 10px solid #F04C26;
+  background: #fff;
+}
+a, a:visited {
+  color: #F04C26;
+}
+body {
+  font-family: $font_family;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  position: relative;
+  letter-spacing: normal;
+  color: #1c2838;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #fff;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  @media screen and (min-width: 800px){
+    flex-direction: row
+  }
+  justify-content: space-between;
+  &__logo {
+    width: 50px;
+    margin-bottom: 20px;
+    @media screen and (min-width: 800px){
+      margin-bottom: 0px;
+    }
+  }
+  &__menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    a {
+      margin: 0 10px;
+      color: #45505d;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28.8px;
+      text-decoration: none;
+      font-family: $font_family;
+    }
+  }
+}
+.wrapper {
+  max-width: 940px;
+}
+.footer {
+  &-wrapper {
+    background: #161e2a;
+  }
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  @media screen and (min-width: 800px){
+    justify-content: space-between;
+  }
+  &__logo img{
+    width: 50px;
+    display: none;
+    @media screen and (min-width: 800px){
+      display: flex;
+    }
+  }
+  &__menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items:center;
+    flex-direction: column;
+    @media screen and (min-width: 800px){
+      flex-direction: row;
+    }
+    li {
+      color: #fff;
+      span {
+        margin: 0 10px;
+      }
+    }
+    a {
+      margin: 0 10px;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28.8px;
+      text-decoration: none;
+      font-family: $font_family;
+
+    }
+  }
+}
+.container {
+  max-width: 1260px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+a.post-link {
+  text-decoration: none;
+  font-size: 36px;
+  font-family: $font_family;
+  color: #000;
+  padding-top: 20px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+h1.post-title {
+  padding-top: 20px;
+}
