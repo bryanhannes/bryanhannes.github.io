@@ -1,8 +1,13 @@
 <footer class="footer-wrapper">
     <div class="container">
         <div class="footer">
+            <ul class="footer__socials">
+                {%- if site.github_username -%}<li><a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use></svg></a></li>{%- endif -%}
+                {%- if site.twitter_username -%}<li><a href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}" target="_blank"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg></a></li>{%- endif -%}
+                {%- if site.linkedin_username -%}<li><a href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}" target="_blank"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg></a></li>{%- endif -%}
+            </ul>
             <ul class="footer__menu">
-                <li><span>&copy; 2022 bryanhannes.com</span></li>
+                <li><span>&copy; Copyright 2022 - bryanhannes.com</span></li>
             </ul>
         </div>
     </div>

@@ -26,6 +26,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.bryanhannes.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: BryanHannes
 github_username:  bryanhannes
+linkedin_username: "bryan-hannes"
 permalink: /:title/
 disqus:
   shortname: blog-bryanhannes-com
@@ -37,6 +38,8 @@ plugins:
 google_analytics:
 google_verification:
 disqus-shortname: bryanhannes
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

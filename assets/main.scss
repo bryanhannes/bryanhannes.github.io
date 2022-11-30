@@ -14,11 +14,11 @@ $font_family: 'montserrat', sans-serif;
 }
 .site-header {
   border: none;
-  border-bottom: 10px solid #F04C26;
+  border-bottom: 4px solid $brand-color;
   background: #fff;
 }
 a, a:visited {
-  color: #F04C26;
+  color: $brand-color;
 }
 body {
   font-family: $font_family;
@@ -48,7 +48,7 @@ body {
   }
   justify-content: space-between;
   &__logo {
-    width: 50px;
+    width: 70px;
     margin-bottom: 20px;
     @media screen and (min-width: 800px){
       margin-bottom: 0px;
@@ -75,20 +75,59 @@ body {
 }
 .footer {
   &-wrapper {
-    background: #161e2a;
+    background: #202126;
   }
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 1rem;
+
   @media screen and (min-width: 800px){
     justify-content: space-between;
+    flex-direction: row;
   }
-  &__logo img{
-    width: 50px;
-    display: none;
+
+  &__socials {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
     @media screen and (min-width: 800px){
+      justify-content: flex-start;
+    }
+
+    li {
+      color: #fff;
+
+      span {
+        margin: 0 10px;
+      }
+    }
+
+    a {
+      margin: 0 10px;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28.8px;
+      text-decoration: none;
+      font-family: $font_family;
       display: flex;
+      align-items: center;
+
+
+      &:hover {
+        color: $brand-color;
+
+        svg {
+          fill: $brand-color;
+        }
+      }
     }
   }
   &__menu {
@@ -97,16 +136,19 @@ body {
     margin: 0;
     padding: 0;
     align-items:center;
+    justify-content: flex-end;
     flex-direction: column;
+    text-align: center;
+
     @media screen and (min-width: 800px){
       flex-direction: row;
+      text-align: right;
     }
+
     li {
       color: #fff;
-      span {
-        margin: 0 10px;
-      }
     }
+
     a {
       margin: 0 10px;
       color: #fff;
@@ -116,12 +158,16 @@ body {
       text-decoration: none;
       font-family: $font_family;
 
+      &:hover {
+        color: $brand-color;
+      }
+
     }
   }
 }
 .container {
   max-width: 1260px;
-  padding: 0 40px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 a.post-link {
