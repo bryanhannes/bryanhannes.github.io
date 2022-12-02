@@ -6,20 +6,6 @@
 
 $font_family: 'montserrat', sans-serif;
 
-
-.author-thumb{
-  border-radius: 50%;
-  width:40px;
-  height:40px;
-}
-.site-header {
-  border: none;
-  border-bottom: 4px solid $brand-color;
-  background: #fff;
-}
-a, a:visited {
-  color: $brand-color;
-}
 body {
   font-family: $font_family;
   font-size: 18px;
@@ -36,6 +22,23 @@ body {
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
+
+.author-thumb{
+  border-radius: 50%;
+  width:40px;
+  height:40px;
+}
+
+.site-header {
+  border: none;
+  border-bottom: 4px solid $brand-color;
+  background: #fff;
+}
+
+a, a:visited {
+  color: $brand-color;
+}
+
 .header {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -43,22 +46,27 @@ body {
   display: flex;
   align-items:center;
   flex-direction: column;
+  justify-content: space-between;
+
   @media screen and (min-width: 800px){
     flex-direction: row
   }
-  justify-content: space-between;
+
   &__logo {
     width: 70px;
     margin-bottom: 20px;
+
     @media screen and (min-width: 800px){
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
   }
+
   &__menu {
     list-style-type: none;
     display: flex;
     margin: 0;
     padding: 0;
+
     a {
       margin: 0 10px;
       color: #45505d;
@@ -70,9 +78,11 @@ body {
     }
   }
 }
+
 .wrapper {
   max-width: 940px;
 }
+
 .footer {
   &-wrapper {
     background: #202126;
@@ -170,16 +180,19 @@ body {
   padding: 0 20px;
   margin: 0 auto;
 }
+
 a.post-link {
   text-decoration: none;
   font-size: 36px;
   font-family: $font_family;
   color: #000;
   padding-top: 20px;
+
   &:hover {
     text-decoration: none;
   }
 }
+
 h1.post-title {
   padding-top: 20px;
 }
