@@ -14,7 +14,7 @@ We assume that you have NPM, Node and Docker installed already.
 
 ## Generate Qwik project
 We start with generating a new Qwik project. 
-You can follow the steps in the [official guide](https://qwik.builder.io/docs/getting-started/) or follow the steps in this below.
+You can follow the steps in the <a href="https://qwik.builder.io/docs/getting-started/" target="_blank">Qwik getting started guide</a> or follow the steps in this below.
 
 Open your terminal
 
@@ -22,7 +22,7 @@ Open your terminal
 > npm create qwik@latest
 ```
 
-Give your applicationa name, we are going to name our application: *qwik-docker*
+Give your application a name, we are going to name our application: *qwik-docker*
 
 Select a starter, for this article we are going to create a *Basic App (QwikCity)"*
 
@@ -195,11 +195,10 @@ When the build completes you can run the newly created image with:
 > docker run -p 3000:3000 qwik-docker
 ```
 
-Now you should be able to access your Qwik application which is running Docker at [http://localhost:3000](http://localhost:3000)
+Now you should be able to access your Qwik application which is running Docker at 
+<a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
 
 <img src="/assets/running-qwik-in-docker/qwik-running-in-docker.jpg" alt="Qwik running on Docker" title="Qwik running on Docker">
-
-// TODO add image here qwik-running-in-docker (add square around localhost)
 
 
 # Conclusion
