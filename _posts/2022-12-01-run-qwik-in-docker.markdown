@@ -11,7 +11,7 @@ cover: assets/running-qwik-in-docker/running-qwik-in-docker-cover.png
 ---
 
 Last week I started learning Qwik, I must say I see a lot of potential in this framework. 
-As an experiment I wanted to run a Qwik project in a Docker container. In this article, I will show you how I did it.
+As an experiment, I wanted to run a Qwik project in a Docker container. In this article, I will show you how I did it.
 
 At the time of writing the latest version of Qwik is 0.15.0 and Qwik City 0.0.127.
 
@@ -109,19 +109,20 @@ npm run qwik add express
 
 ```
 
-When Express is succesfully installed you should see a success message in the terminal:
+When Express is succesfully installed you should see a success message in the terminal and 2 files should be created:
+- adaptors/express/vite.config.ts
+- src/entry.express.tsx
+
 ```shell
 ✔ Updating app and installing dependencies...
 🦄  Success!  Added express to your app
 ```
 
-and 2 files should be created: 
-- adaptors/express/vite.config.ts
-- src/entry.express.tsx
+
 
 The *entry.express.tsx* file is going to be the startup file of the application.
 
-<img src="/assets/running-qwik-in-docker/result-after-express-installed.png" alt="Generated Express Adaptor folder structure" title="Generated Express Adaptor folder structure">
+<img src="/assets/running-qwik-in-docker/results-after-express-installed.jpg" alt="Generated Express Adaptor folder structure" title="Generated Express Adaptor folder structure">
 
 
 ## Creating the dockerfile
@@ -167,7 +168,7 @@ CMD [ "node", "server/entry.express"]
 ```
 
 ## Building and running the project in Docker
-The moment you are waiting for is finally here: we are going to build the Docker image.
+The moment you are waiting for is finally here, we are going to build the Docker image.
 
 - Make sure the Docker daemon is running
 - Open the terminal 
@@ -219,7 +220,7 @@ Now you should be able to access your Qwik application which is running in Docke
 
 # Conclusion
 Congratulations, you just ran a newly created Qwik project in Docker
-Now that you have your image you can easily deploy it to the cloud with eg. Google Cloud Ru
+Now that you have your image you can easily deploy it to the cloud with eg. Google Cloud Run
 
 # Note from author
 I hope you enjoyed this blog article and learned a thing or two. Should you have any remarks/improvements/feedback, please hit me up via <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
