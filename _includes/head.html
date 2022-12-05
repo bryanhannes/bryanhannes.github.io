@@ -14,4 +14,27 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
+
+  <style>
+
+    #sib-container input:-ms-input-placeholder {
+      text-align: left;
+      font-family: "Montserrat", sans-serif;
+      color: #c0ccda;
+    }
+
+    #sib-container input::placeholder {
+      text-align: left;
+      font-family: "Montserrat", sans-serif;
+      color: #c0ccda;
+    }
+
+    #sib-container textarea::placeholder {
+      text-align: left;
+      font-family: "Montserrat", sans-serif;
+      color: #c0ccda;
+    }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <!--  END - We recommend to place the above code in head tag of your website html -->
 </head>
