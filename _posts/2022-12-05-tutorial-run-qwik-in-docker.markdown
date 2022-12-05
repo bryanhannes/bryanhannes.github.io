@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Running Qwik in a Docker container"
-date:   2022-12-01 00:00:00 +0100
+title:  "Tutorial: Running Qwik in a Docker container"
+date:   2022-12-05 16:00:00 +0100
 categories: Qwik
 published: true
 comments: true
@@ -10,27 +10,26 @@ cover: assets/running-qwik-in-docker/running-qwik-in-docker-cover.png
 
 ---
 
-Last week I started learning Qwik, I must say I see a lot of potential in this framework. 
-As an experiment, I wanted to run a Qwik project in a Docker container. In this article, I will show you how I did it.
+In this tutorial, we are going to set up a new Qwik project, build a Docker image from our Qwik project and run the Docker image on our local machine.
 
 At the time of writing the latest version of Qwik is 0.15.0 and Qwik City 0.0.127.
 
-I assume that you have NPM, Node and Docker installed already.
+Let's assume that you have NPM, Node and Docker installed already.
 
 ## Generate Qwik project
-We start with generating a new Qwik project. 
-You can follow the steps in the <a href="https://qwik.builder.io/docs/getting-started/" target="_blank">Qwik getting started guide</a> or follow the steps in this below.
+We start with generating a new Qwik project.
+We can follow the steps in the <a href="https://qwik.builder.io/docs/getting-started/" target="_blank">Qwik getting started guide</a> or follow the steps below.
 
-Open your terminal and run following command
+Open a terminal and run the following command
 
 ```shell
 npm create qwik@latest
 ```
-The CLI will prompt for an application name, we are going to name our application: *qwik-docker*
+The CLI will prompt for an application name, we are going to name our application: `qwik-docker`
 
-Select the  *Basic App (QwikCity)* starter and install the npm dependencies.
+Select the  `Basic App (QwikCity)` starter and install the npm dependencies.
 
-Your terminal should look like this:
+The terminal should look like this:
 ```shell
 🐰 Let's create a Qwik app 🐇   v0.15.0
 
@@ -69,17 +68,17 @@ We are going to navigate to the newly created project and start the local develo
 
 ```shell
 cd qwik-docker
-npm run start
+npm start
 ```
 
-Open your browser and go to <a href="http://localhost:5174" target="_blank">http://localhost:5174</a>
+Open a browser and go to <a href="http://localhost:5174" target="_blank">http://localhost:5174</a>
 
 <img src="/assets/running-qwik-in-docker/new-qwik-project.jpg" alt="Newly generated Qwik project" title="Newly generated Qwik project">
 
 ## Adding the Express adaptor
 The next step is to add the Express adaptor.
 
-Run following command in the terminal and select *"Yes looks good, finish update!"*
+Run the following command in the terminal and select `Yes looks good, finish update!`
 
 ```shell
 npm run qwik add express
@@ -109,9 +108,9 @@ npm run qwik add express
 
 ```
 
-When Express is succesfully installed you should see a success message in the terminal and 2 files should be created:
-- adaptors/express/vite.config.ts
-- src/entry.express.tsx
+When Express is successfully installed we should see a success message in the terminal and 2 files should be created:
+- `adaptors/express/vite.config.ts`
+- `src/entry.express.tsx`
 
 ```shell
 ✔ Updating app and installing dependencies...
@@ -120,14 +119,14 @@ When Express is succesfully installed you should see a success message in the te
 
 
 
-The *entry.express.tsx* file is going to be the startup file of the application.
+The `entry.express.tsx` file is going to be the startup file of the application.
 
 <img src="/assets/running-qwik-in-docker/results-after-express-installed.jpg" alt="Generated Express Adaptor folder structure" title="Generated Express Adaptor folder structure">
 
 
 ## Creating the dockerfile
 
-Add a new Dockerfile to the root of your project with the following content.
+Add a new Dockerfile to the root of the Qwik project with the following content.
 
 ```Dockerfile
 # Intermediate docker image to build the bundle in and install dependencies
@@ -136,10 +135,12 @@ FROM node:19.2-alpine3.15 as build
 # Set the working directory to /usr/src/app
 WORKDIR /usr/src/app
 
+# Copy the package.json and package-lock.json over in the intermedate "build" image
 COPY ./package.json ./
 COPY ./package-lock.json ./
 
 # Install the dependencies
+# Clean install because we want to install the exact versions
 RUN npm ci
 
 # Copy the source code into the build image
@@ -168,11 +169,11 @@ CMD [ "node", "server/entry.express"]
 ```
 
 ## Building and running the project in Docker
-The moment you are waiting for is finally here, we are going to build the Docker image.
+The moment we are waiting for is finally here, we are going to build the Docker image.
 
 - Make sure the Docker daemon is running
-- Open the terminal 
-- Navigate to the root directory of your Qwik project 
+- Open the terminal
+- Navigate to the root directory of the Qwik project
 - Run the build command
 
 ```shell
@@ -206,21 +207,24 @@ docker build -t qwik-docker .
  => => naming to docker.io/library/qwik-docker                                                                                                                                                                     0.0s                                                                   0.0s 
 ```
 
-When the build completes you can start the image.
+When the build completes we can run the Docker image.
 
 ```shell
 docker run -p 3000:3000 qwik-docker
 ```
 
-Now you should be able to access your Qwik application which is running in Docker at 
+Now we should be able to access the Qwik application which is running in Docker at
 <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
 
 <img src="/assets/running-qwik-in-docker/qwik-running-in-docker.jpg" alt="Qwik running on Docker" title="Qwik running on Docker">
 
 
 # Conclusion
-Congratulations, you just ran a newly created Qwik project in Docker
-Now that you have your image you can easily deploy it to the cloud with eg. Google Cloud Run
+Congratulations, we just ran a newly created Qwik project in Docker
+Now that we have our Docker image we can easily deploy it to the cloud with eg. Google Cloud Run.
 
 # Note from author
-I hope you enjoyed this blog article and learned a thing or two. Should you have any remarks/improvements/feedback, please hit me up via <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
+I hope you enjoyed this blog article and learned a thing or two. Feel free to leave any remarks/improvements/feedback in the comments or hit me up on <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
+
+# Reviewers
+Special thanks to the reviewer: <a href="https://twitter.com/brechtbilliet" target="_blank">Brecht Billiet</a> from <a href="https://simplified.courses/" target="_blank">Simplified Courses</a>
