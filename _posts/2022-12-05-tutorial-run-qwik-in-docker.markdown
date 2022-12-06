@@ -7,7 +7,6 @@ published: true
 comments: true
 categories: Qwik
 cover: assets/running-qwik-in-docker/running-qwik-in-docker-cover.png
-
 ---
 
 In this tutorial, we are going to set up a new Qwik project, build a Docker image from our Qwik project and run the Docker image on our local machine.
