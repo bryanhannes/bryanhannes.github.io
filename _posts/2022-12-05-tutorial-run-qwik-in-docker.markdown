@@ -226,5 +226,7 @@ Now that we have our Docker image we can easily deploy it to the cloud with eg. 
 # Note from author
 I hope you enjoyed this blog article and learned a thing or two. Feel free to leave any remarks/improvements/feedback in the comments or hit me up on <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Feeling proud 💪<br>I finished my first blog post ever today: Tutorial: Running <a href="https://twitter.com/QwikDev?ref_src=twsrc%5Etfw">@QwikDev</a> in a <a href="https://twitter.com/Docker?ref_src=twsrc%5Etfw">@Docker</a> container&quot;<br><br>Find the blog article here:<a href="https://t.co/RyoYxAfr5G">https://t.co/RyoYxAfr5G</a><br><br>Hope you enjoy it and feedback is always welcome 😍</p>&mdash; Bryan Hannes (@BryanHannes) <a href="https://twitter.com/BryanHannes/status/1599790550491987969?ref_src=twsrc%5Etfw">December 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 # Reviewers
 Special thanks to the reviewer: <a href="https://twitter.com/brechtbilliet" target="_blank">Brecht Billiet</a> from <a href="https://simplified.courses/" target="_blank">Simplified Courses</a>
