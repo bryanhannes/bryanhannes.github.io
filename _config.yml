@@ -28,6 +28,7 @@ url: "https://blog.bryanhannes.com" # the base hostname & protocol for your site
 twitter_username: BryanHannes
 github_username:  bryanhannes
 linkedin_username: "bryan-hannes"
+youtube_username: "bryanhannes"
 permalink: /:title/
 disqus:
   shortname: blog-bryanhannes-com
