@@ -227,5 +227,10 @@ I hope you enjoyed this blog article and learned a thing or two. Feel free to le
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Feeling proud 💪<br>I finished my first blog post ever today: Tutorial: Running <a href="https://twitter.com/QwikDev?ref_src=twsrc%5Etfw">@QwikDev</a> in a <a href="https://twitter.com/Docker?ref_src=twsrc%5Etfw">@Docker</a> container&quot;<br><br>Find the blog article here:<a href="https://t.co/RyoYxAfr5G">https://t.co/RyoYxAfr5G</a><br><br>Hope you enjoy it and feedback is always welcome 😍</p>&mdash; Bryan Hannes (@BryanHannes) <a href="https://twitter.com/BryanHannes/status/1599790550491987969?ref_src=twsrc%5Etfw">December 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+# Video
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/knKeJDGTNpk" title="Tutorial: Running Qwik in a Docker container" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # Reviewers
 Special thanks to the reviewer: <a href="https://twitter.com/brechtbilliet" target="_blank">Brecht Billiet</a> from <a href="https://simplified.courses/" target="_blank">Simplified Courses</a>
+
