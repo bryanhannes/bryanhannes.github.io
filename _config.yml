@@ -36,11 +36,10 @@ disqus:
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 google_analytics: G-JME174BNQX
 google_verification:
 disqus-shortname: bryanhannes
-
-
 
 # Exclude from processing.
 # The following items will not be processed, by default.
