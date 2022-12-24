@@ -88,4 +88,4 @@ Congratulations, we just build an OCI image (Docker image) from a Qwik applicati
 In my humble opinion, Buildpacks are ideal for simple projects when you don't have a Dockerfile at hand. 
 In more complex situations it may be better to write Dockerfiles.
 
-<!-- // TODO add twitter post -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Having a great feeling after a productive morning 💪 <br>I wrote a blog article how to run <a href="https://twitter.com/QwikDev?ref_src=twsrc%5Etfw">@QwikDev</a> in Docker without creating a Dockerfile with the help of <a href="https://twitter.com/buildpacks_io?ref_src=twsrc%5Etfw">@buildpacks_io</a> <br><br>Feedback is always welcome 😃<a href="https://t.co/vrNMlenGZE">https://t.co/vrNMlenGZE</a></p>&mdash; Bryan Hannes (@BryanHannes) <a href="https://twitter.com/BryanHannes/status/1606561696369328131?ref_src=twsrc%5Etfw">December 24, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
