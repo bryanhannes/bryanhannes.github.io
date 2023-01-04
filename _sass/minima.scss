@@ -12,6 +12,7 @@ $spacing-unit:     30px !default;
 
 $text-color:       #111 !default;
 $background-color: #fdfdfd !default;
+$background-color-light: #F8FAFC !default;
 $brand-color:      #F04C26 !default;
 $dark-brand-color: #202126 !default;
 
@@ -22,7 +23,7 @@ $grey-color-dark:  darken($grey-color, 25%) !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    800px !default;
+$content-width:    1040px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        800px !default;

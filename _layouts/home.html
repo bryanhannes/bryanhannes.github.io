@@ -4,39 +4,36 @@ layout: default
 <div class="wrapper">
 
     <div class="home">
+        <h1>Blog</h1>
+        <hr class="line" />
         {{ content }}
 
         {%- if site.posts.size > 0 -%}
         <ul class="post-list">
             {%- for post in site.posts -%}
-            <li>
-                <a href="{{ post.url | relative_url }}">
-                    <img src="/{{post.cover}}" alt="">
+            <li class="post-list__post">
+                <span href="{{ post.url | relative_url }}" title="{{ post.title }}">
+                    <img src="/{{post.cover}}" alt="{{ post.title }}">
+                    <footer class="post-meta">
+
+                        <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
+                        <!-- author -->
+                        &nbsp;Bryan Hannes&nbsp;|&nbsp;
+
+
+                        <time class="post-date" datetime="{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date_to_string
+                            }}
+                        </time>
+                    </footer>
+                    <div class="post-list__post-content">
+                        <h3>{{post.title}}</h3>
+                        <p>{{post.description}}</p>
+
+                        {%- if site.show_excerpts -%}
+                        {{ post.excerpt }}
+                        {%- endif -%}
+                    </div>
                 </a>
-                <h3>
-                    <a class="post-link" href="{{ post.url | relative_url }}">
-                        {{ post.title | escape }}
-                    </a>
-                </h3>
-                <section class="post-excerpt">
-                    <p>{{ post.content | strip_html | truncatewords: 26 }} <a class="read-more"
-                                                                              href="{{ site.baseurl }}{{ post.url | remove: '/' }}">&raquo;</a>
-                    </p>
-                </section>
-                <footer class="post-meta">
-
-                    <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
-                    <!-- author -->
-                    Bryan Hannes |
-
-
-                    <time class="post-date" datetime="{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date_to_string
-                        }}
-                    </time>
-                </footer>
-                {%- if site.show_excerpts -%}
-                {{ post.excerpt }}
-                {%- endif -%}
             </li>
             {%- endfor -%}
         </ul>

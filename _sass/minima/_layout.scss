@@ -1,175 +1,87 @@
 /**
+ * Wrappers and containers
+ */
+.container {
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/**
  * Site header
  */
 .site-header {
-  border-top: 5px solid $grey-color-dark;
-  border-bottom: 1px solid $grey-color-light;
   min-height: $spacing-unit * 1.865;
-
   // Positioning context for the mobile navigation icon
   position: relative;
-}
+  background-color: transparent;
 
-.site-title {
-  @include relative-font-size(1.625);
-  font-weight: 300;
-  line-height: $base-line-height * $base-font-size * 2.25;
-  letter-spacing: -1px;
-  margin-bottom: 0;
-  float: left;
-
-  &,
-  &:visited {
-    color: $grey-color-dark;
+  .container {
+    background-color: $background-color-light;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 }
 
-.site-nav {
-  float: right;
-  line-height: $base-line-height * $base-font-size * 2.25;
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 
-  .nav-trigger {
-      display: none;
+  @media screen and (min-width: 800px) {
+    flex-direction: row
   }
 
-  .menu-icon {
+  & .header {
+    &__logo {
+      width: 70px;
+      margin-bottom: 20px;
+
+      @media screen and (min-width: 800px) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__menu {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      li.header__menu__item {
+        a {
+          margin: 0 10px;
+          color: $dark-brand-color;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 28.8px;
+          text-decoration: none;
+          transition: 0.2s ease-out;
+
+          &:hover {
+            color: $brand-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__socials {
     display: none;
-  }
 
-  .page-link {
-    color: $text-color;
-    line-height: $base-line-height;
-
-    // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 20px;
+    svg {
+      fill: $dark-brand-color
     }
-  }
 
-  @include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
-    background-color: $background-color;
-    border: 1px solid $grey-color-light;
-    border-radius: 5px;
-    text-align: right;
-
-    label[for="nav-trigger"] {
+    @media screen and (min-width: 768px) {
       display: block;
-      float: right;
-      width: 36px;
-      height: 36px;
-      z-index: 2;
-      cursor: pointer;
-    }
-
-    .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      padding-top: 10px;
-      text-align: center;
-
-      > svg {
-        fill: $grey-color-dark;
-      }
-    }
-
-    input ~ .trigger {
-      clear: both;
-      display: none;
-    }
-
-    input:checked ~ .trigger {
-      display: block;
-      padding-bottom: 5px;
-    }
-
-    .page-link {
-      display: block;
-      padding: 5px 10px;
-
-      &:not(:last-child) {
-        margin-right: 0;
-      }
-      margin-left: 20px;
     }
   }
 }
-
-
-
-/**
- * Site footer
- */
-.site-footer {
-  border-top: 1px solid $grey-color-light;
-  padding: $spacing-unit 0;
-}
-
-.footer-heading {
-  @include relative-font-size(1.125);
-  margin-bottom: $spacing-unit / 2;
-}
-
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.footer-col-wrapper {
-  @include relative-font-size(0.9375);
-  color: $grey-color;
-  margin-left: -$spacing-unit / 2;
-  @extend %clearfix;
-}
-
-.footer-col {
-  float: left;
-  margin-bottom: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
-}
-
-.footer-col-1 {
-  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-  width:         calc(35% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-2 {
-  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-  width:         calc(20% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width:         calc(45% - (#{$spacing-unit} / 2));
-}
-
-@include media-query($on-laptop) {
-  .footer-col-1,
-  .footer-col-2 {
-    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-    width:         calc(50% - (#{$spacing-unit} / 2));
-  }
-
-  .footer-col-3 {
-    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
-  }
-}
-
-@include media-query($on-palm) {
-  .footer-col {
-    float: none;
-    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
-  }
-}
-
 
 
 /**
@@ -250,6 +162,113 @@
 
     @include media-query($on-laptop) {
       @include relative-font-size(1.125);
+    }
+  }
+}
+
+/**
+ * Socials
+ */
+
+.socials {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 800px) {
+    justify-content: flex-start;
+  }
+
+  li {
+    color: #fff;
+
+    span {
+      margin: 0 10px;
+    }
+  }
+
+  a {
+    margin: 0 10px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28.8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-3px);
+
+      svg {
+        fill: $brand-color;
+      }
+    }
+  }
+}
+
+/**
+ * Footer
+ */
+
+
+.footer {
+  &-wrapper {
+    .container {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background: #202126;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  @media screen and (min-width: 800px) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  &__menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    text-align: center;
+
+    @media screen and (min-width: 800px) {
+      flex-direction: row;
+      text-align: right;
+    }
+
+    li {
+      color: #fff;
+    }
+
+    a {
+      margin: 0 10px;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28.8px;
+      text-decoration: none;
+
+      &:hover {
+        color: $brand-color;
+      }
     }
   }
 }

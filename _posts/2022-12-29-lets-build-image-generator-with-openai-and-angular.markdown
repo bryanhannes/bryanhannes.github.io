@@ -4,7 +4,7 @@ title:  "Let's build an Image Generator with OpenAI and Angular"
 date:   2022-12-29 10:00:00 +0100
 published: true
 comments: true
-categories: Angular, OpenAI
+categories: Angular OpenAI 
 cover: assets/building-image-generator-with-openai-and-angular/building-image-generator-with-openai-and-angular.png
 ---
 

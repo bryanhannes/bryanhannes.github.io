@@ -8,9 +8,13 @@
                 <img class="header__logo" src="/assets/bryan-hannes-logo.svg" alt="Bryan Hannes logo">
             </a>
             <ul class="header__menu">
-                <li><a href="https://bryanhannes.com">Who is Bryan?</a></li>
-                <li><a href="/">Blog</a></li>
+                <li class="header__menu__item"><a href="https://bryanhannes.com">Home</a></li>
+                <li class="header__menu__item"><a href="https://bryanhannes.com/about">About</a></li>
+                <li class="header__menu__item"><a href="/">Blog</a></li>
             </ul>
+            <div class="header__socials">
+                {%- include socials.html -%}
+            </div>
         </div>
     </div>
 </header>
