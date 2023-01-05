@@ -12,7 +12,7 @@ layout: default
         <ul class="post-list">
             {%- for post in site.posts -%}
             <li class="post-list__post">
-                <span href="{{ post.url | relative_url }}" title="{{ post.title }}">
+                <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
                     <img src="/{{post.cover}}" alt="{{ post.title }}">
                     <footer class="post-meta">
 
