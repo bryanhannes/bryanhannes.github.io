@@ -410,6 +410,6 @@ export class AppComponent {
 - We saw how the `ViewModel` approach makes our templates cleaner.
 
 
-Here you check out the full Stackblits demo:
+Here you check out the full Stackblitz demo:
 <iframe src="https://stackblitz.com/edit/angular-ivy-y8vtzw" width="100%" height="500px"></iframe>
 
