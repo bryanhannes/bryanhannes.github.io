@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Storing and retrieving state in the URL in Angular"
-date:   2023-01-01 10:00:00 +0100
+title:  "Reactively storing and retrieving URL state in Angular"
+date:   2023-01-07 10:00:00 +0100
 published: true
 comments: true
 categories: Angular
-cover: assets/building-image-generator-with-openai-and-angular/building-image-generator-with-openai-and-angular.png
+cover: assets/reactively-storing-and-retrieving-url-state-in-angular/reactively-storing-and-retrieving-url-state-in-angular.png
 ---
 
 In this article. we'll explore different techniques you can use to store state in the URL, including query parameters and route parameters. We also build an application that saves the search filters in the URL.
@@ -53,7 +53,7 @@ We are going to build a simple car catalog application in Angular 15 where we ca
 
 This is what the application looks like:
 
-<img src="/assets/state-in-angular/car-catalog-application.png" alt="Overview of the car catalog application" alt="Overview of the car catalog application">
+<img src="/assets/reactively-storing-and-retrieving-url-state-in-angular/car-catalog-application.png" alt="Overview of the car catalog application" alt="Overview of the car catalog application">
 
 
 We use the `app.component` as the container or smart component. If we have a look at the template we notice that there are 2 UI components: `SearchFilterComponent` and `SearchResultsComponent`.
