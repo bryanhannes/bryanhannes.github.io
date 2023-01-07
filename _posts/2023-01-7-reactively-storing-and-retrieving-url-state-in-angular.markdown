@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Reactively storing and retrieving URL state in Angular"
-date:   2023-01-07 10:00:00 +0100
+date:   2023-01-06 10:00:00 +0100
 published: true
 comments: true
 categories: Angular
@@ -53,7 +53,9 @@ We are going to build a simple car catalog application in Angular 15 where we ca
 
 This is what the application looks like:
 
-<img src="/assets/reactively-storing-and-retrieving-url-state-in-angular/car-catalog-application.png" alt="Overview of the car catalog application" alt="Overview of the car catalog application">
+<img src="/assets/reactively-storing-and-retrieving-url-state-in-angular/car-catalog-application.png" alt="Overview of the car catalog application" style="
+max-height: 350px;
+">
 
 
 We use the `app.component` as the container or smart component. If we have a look at the template we notice that there are 2 UI components: `SearchFilterComponent` and `SearchResultsComponent`.
@@ -91,39 +93,42 @@ The component takes in three inputs (`name`, `brand` and `color`) which are used
 <!-- search-filter.component.html -->
 
 <div class="filter">
-  <label for="name">Name:</label>
-  <input type="text" id="name" [ngModel]="name" (keyup)="updateName($event)" />
+    <label for="name">Name:</label>
+    <input type="text" id="name" [ngModel]="name" (keyup)="updateName($event)" />
 </div>
 
 <div class="filter">
-  <label for="brand">Brand:</label>
-  <select
-    name="brand"
-    id="brand"
-    [ngModel]="brand"
-    (ngModelChange)="updateBrand($event)"
-  >
-    <option value="Toyota">Toyota</option>
-    <option value="Ford">Ford</option>
-    <option value="Volkswagen">Volkswagen</option>
-  </select>
+    <label for="brand">Brand:</label>
+    <select
+            name="brand"
+            id="brand"
+            [ngModel]="brand"
+            (ngModelChange)="updateBrand($event)"
+    >
+        <option [ngValue]="null"></option>
+        <option value="Toyota">Toyota</option>
+        <option value="Ford">Ford</option>
+        <option value="Volkswagen">Volkswagen</option>
+    </select>
 </div>
 
 <div class="filter">
-  <label for="name">Color:</label>
+    <label for="name">Color:</label>
 
-  <select
-    name="color"
-    id="color"
-    [ngModel]="color"
-    (ngModelChange)="updateColor($event)"
-  >
-    <option value="black">Black</option>
-    <option value="blue">Blue</option>
-    <option value="red">Red</option>
-    <option value="green">Green</option>
-  </select>
+    <select
+            name="color"
+            id="color"
+            [ngModel]="color"
+            (ngModelChange)="updateColor($event)"
+    >
+        <option [ngValue]="null"></option>
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+    </select>
 </div>
+
 
 ```
 
@@ -140,34 +145,50 @@ import {
 import { FormsModule } from '@angular/forms';
 import { CarFilter } from '../model/car-filter';
 
+import {
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CarFilter } from '../model/car-filter';
+
 @Component({
-  selector: 'app-search-filter',
-  templateUrl: './search-filter.component.html',
-  styleUrls: ['./search-filter.component.css'],
-  imports: [FormsModule],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-search-filter',
+    templateUrl: './search-filter.component.html',
+    styleUrls: ['./search-filter.component.css'],
+    imports: [FormsModule],
+    standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchFilterComponent {
-  @Input() public name: string = '';
-  @Input() public brand: string = '';
-  @Input() public color: string = '';
+    @Input() public name?: string;
+    @Input() public brand?: string;
+    @Input() public color?: string;
 
-  @Output() public readonly filterChanged = new EventEmitter<CarFilter>();
+    @Output() public readonly filterChanged = new EventEmitter<CarFilter>();
 
-  public updateName(event: KeyboardEvent): void {
-    const value = (event.target as HTMLInputElement).value;
-    this.filterChanged.emit({ name: value });
-  }
+    public updateName(event: KeyboardEvent): void {
+        let value = (event.target as HTMLInputElement).value;
 
-  public updateBrand(value: string): void {
-    this.filterChanged.emit({ brand: value });
-  }
+        if (value === '') {
+            value = null;
+        }
 
-  public updateColor(value: string): void {
-    this.filterChanged.emit({ color: value });
-  }
+        this.filterChanged.emit({ name: value });
+    }
+
+    public updateBrand(value: string): void {
+        this.filterChanged.emit({ brand: value });
+    }
+
+    public updateColor(value: string): void {
+        this.filterChanged.emit({ color: value });
+    }
 }
+
 
 ```
 
