@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Reactively storing and retrieving URL state in Angular"
-date:   2023-01-06 10:00:00 +0100
+date:   2023-01-09 12:00:00 +0100
 published: true
 comments: true
 categories: Angular
@@ -19,11 +19,12 @@ But we don't want to save all types of state to the URL, some type of state is m
 - Page Numbers
 - Ids (for detail pages)
 
-## 2 Types of states in the URL
-There are 2 types of states in the URL
+## Types of states in the URL
+There are 3 types of states in the URL
 
 1. Query Parameters
 2. Route Parameters
+3. Fragment
 
 ### Query Parameters
 Query parameters are key-value pairs that are added to the end of the URL after a `?` character and every parameter is added after this in a `key=value` format, separated by a `&`.
@@ -45,17 +46,17 @@ So in this example, `angular` is the productId.
 https://blog.bryanhannes.com/products/angular
 ```
 
+### Fragment
+
+A fragment is a named section within an HTML document, specified in a URL by the `#` character followed by a unique name.
 
 ## The car catalog application
-We are going to build a simple car catalog application in Angular 15 where we can search for cars. The search filters will be stored in the URL as query parameters.
-
-*Note: we are using standalone components in the code.*
+We are going to build a simple car catalog application in Angular 15 with standalone components where we can search for cars. The search filters will be stored in the URL as query parameters.
 
 This is what the application looks like:
 
-<img src="/assets/reactively-storing-and-retrieving-url-state-in-angular/car-catalog-application.png" alt="Overview of the car catalog application" style="
-max-height: 350px;
-">
+
+<iframe src="https://angular-ivy-y8vtzw.stackblitz.io/" width="100%" height="500px"></iframe>
 
 
 We use the `app.component` as the container or smart component. If we have a look at the template we notice that there are 2 UI components: `SearchFilterComponent` and `SearchResultsComponent`.
@@ -85,7 +86,7 @@ First, let's see what the `SearchFilterComponent` and `SearchResultsComponent` l
 
 ### The SearchFilterComponent
 The search filter component renders the filters: `name`, `brand` and `color`.
-This component also emits an event when a filter changes `filterChanges`.
+When one of the filters is changed, the `filterChanged` event is emitted with the new filter value.
 
 The component takes in three inputs (`name`, `brand` and `color`) which are used to set the value of the input (`name`) and selects (`brand` and `color`).
 
@@ -135,34 +136,7 @@ The component takes in three inputs (`name`, `brand` and `color`) which are used
 ```typescript
 // search-filter.component.ts
 
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CarFilter } from '../model/car-filter';
-
-import {
-    ChangeDetectionStrategy,
-    Component,
-    EventEmitter,
-    Input,
-    Output,
-} from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CarFilter } from '../model/car-filter';
-
-@Component({
-    selector: 'app-search-filter',
-    templateUrl: './search-filter.component.html',
-    styleUrls: ['./search-filter.component.css'],
-    imports: [FormsModule],
-    standalone: true,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-})
+@Component({ ... })
 export class SearchFilterComponent {
     @Input() public name?: string;
     @Input() public brand?: string;
@@ -223,18 +197,7 @@ The search results component renders the table of cars, this component has one i
 ```typescript
 // search-results.component.ts
 
-import { CommonModule, JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Car } from '../model/car';
-
-@Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.css'],
-  imports: [CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-})
+@Component({ ... })
 export class SearchResultsComponent {
   @Input() public cars: Car[] = [];
 }
@@ -343,16 +306,6 @@ Our final `AppComponent` looks like this:
 ```typescript
 // app.component.ts
 
-import { Component, inject } from '@angular/core';
-import { SearchFilterComponent } from './search-filter/search-filter.component';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import { combineLatest, map, Observable, switchMap } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { CarService } from './services/car.service';
-import { SearchResultsComponent } from './search-results/search-results.component';
-import { CarFilter } from './model/car-filter';
-import { Car } from './model/car';
-
 interface PageViewModel {
   name: string;
   brand: string;
@@ -360,14 +313,7 @@ interface PageViewModel {
   results: Car[];
 }
 
-@Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [CommonModule, SearchFilterComponent, SearchResultsComponent],
-  providers: [CarService],
-  standalone: true,
-})
+@Component({ ... })
 export class AppComponent {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly router = inject(Router);
@@ -416,7 +362,7 @@ export class AppComponent {
     });
   }
 
-  public clear() {
+  public clear(): void {
     this.router.navigate([]);
   }
 }
@@ -433,4 +379,9 @@ export class AppComponent {
 
 Here you check out the full Stackblitz demo:
 <iframe src="https://stackblitz.com/edit/angular-ivy-y8vtzw" width="100%" height="500px"></iframe>
+
+
+Special thanks to the reviewers:
+- [Brecht Billiet](https://twitter.com/brechtbilliet){:target="_blank"}
+- [Steff Beckers](https://steffbeckers.eu/){:target="_blank"}
 
