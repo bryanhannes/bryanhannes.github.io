@@ -371,7 +371,7 @@ export class AppComponent {
 
 
 ## Conclusion
-- Now we know the different techniques for storing state in the URL: query and route parameters.
+- Now we know the different techniques for storing state in the URL: query and route parameters and fragments.
 - To subscribe to changes in query parameters, we can use the `ActivatedRoute` service.
 - We can use the `queryParamsHandling` property to specify how the `Router` should merge new query parameters with the existing ones when navigating to a new route. By setting `queryParamsHandling: 'merge'`, we can merge the new query parameters with the existing ones.
 - We saw how the `ViewModel` approach makes our templates cleaner.
