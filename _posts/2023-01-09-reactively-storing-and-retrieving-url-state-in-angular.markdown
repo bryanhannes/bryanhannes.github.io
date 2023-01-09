@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Reactively storing and retrieving URL state in Angular"
-date:   2023-01-09 12:00:00 +0100
+date:   2023-01-09 10:00:00 +0100
 published: true
 comments: true
 categories: Angular
