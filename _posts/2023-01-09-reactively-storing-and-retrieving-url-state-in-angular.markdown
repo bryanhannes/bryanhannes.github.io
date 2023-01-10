@@ -8,7 +8,7 @@ categories: Angular
 cover: assets/reactively-storing-and-retrieving-url-state-in-angular/reactively-storing-and-retrieving-url-state-in-angular.png
 ---
 
-In this article. we'll explore different techniques you can use to store state in the URL, including query parameters and route parameters. We also build an application that saves the search filters in the URL.
+In this article, we'll explore different techniques you can use to store state in the URL, including query parameters and route parameters. We also build an application which saves search filters in the URL.
 By the end of this article, you'll have a good understanding of how to implement URL state management reactively in Angular.
 
 Storing state in the URL can improve the user experience of an application because it allows the state to be preserved when the page is refreshed, bookmarked, or shared. 
@@ -16,17 +16,17 @@ Storing state in the URL can improve the user experience of an application becau
 But we don't want to save all types of state to the URL, some type of state is more suitable to save to the URL than others. Some state that is perfect to store in the URL is:
 - Filters
 - Sort criteria
-- Page Numbers
-- Ids (for detail pages)
+- Page numbers
+- Id's (for detail pages)
 
 ## Types of states in the URL
-There are 3 types of states in the URL
+There are 3 types of states in the URL:
 
-1. Query Parameters
-2. Route Parameters
+1. Query parameters
+2. Route parameters
 3. Fragment
 
-### Query Parameters
+### Query parameters
 Query parameters are key-value pairs that are added to the end of the URL after a `?` character and every parameter is added after this in a `key=value` format, separated by a `&`.
 
 ```url
@@ -84,7 +84,7 @@ We use the `app.component` as the container or smart component. If we have a loo
 First, let's see what the `SearchFilterComponent` and `SearchResultsComponent` look like.
 
 
-### The SearchFilterComponent
+### SearchFilterComponent
 The search filter component renders the filters: `name`, `brand` and `color`.
 When one of the filters is changed, the `filterChanged` event is emitted with the new filter value.
 
@@ -101,10 +101,10 @@ The component takes in three inputs (`name`, `brand` and `color`) which are used
 <div class="filter">
     <label for="brand">Brand:</label>
     <select
-            name="brand"
-            id="brand"
-            [ngModel]="brand"
-            (ngModelChange)="updateBrand($event)"
+        name="brand"
+        id="brand"
+        [ngModel]="brand"
+        (ngModelChange)="updateBrand($event)"
     >
         <option [ngValue]="null"></option>
         <option value="Toyota">Toyota</option>
@@ -117,10 +117,10 @@ The component takes in three inputs (`name`, `brand` and `color`) which are used
     <label for="name">Color:</label>
 
     <select
-            name="color"
-            id="color"
-            [ngModel]="color"
-            (ngModelChange)="updateColor($event)"
+        name="color"
+        id="color"
+        [ngModel]="color"
+        (ngModelChange)="updateColor($event)"
     >
         <option [ngValue]="null"></option>
         <option value="black">Black</option>
@@ -166,7 +166,7 @@ export class SearchFilterComponent {
 
 ```
 
-### Search Results component
+### SearchResultsComponent
 The search results component renders the table of cars, this component has one input called `cars`.
 
 ```html
@@ -213,7 +213,7 @@ The `AppComponent` is the place where the most interesting stuff will happen:
 #### Retrieving the query parameters
 The first thing we have to do in the AppComponent is to retrieve the query parameters from the URL and map the `Params` to a `CarFilter`. 
 
-We can use the `ActivatedRoute` service to retrieve the query parameters from the current URL. We can transform the `Params` to a `CarFilter` with the help of the `map()` RXJS operator.
+We can use the `ActivatedRoute` service to retrieve the query parameters from the current URL. We can transform the `Params` to a `CarFilter` with the help of the `map` RxJS operator.
 
 ```typescript
 
@@ -227,7 +227,7 @@ queryParams$: Observable<CarFilter> = this.activatedRoute.queryParams.pipe(
   }))
 );
 ```
-To ensure that the search results are automatically updated whenever the query parameters change, we can use the `pipe()` and `switchMap()` operators on the `queryParams$` observable. The `switchMap()` operator is used because it allows us to return another observable (in this case, the observable of search results returned by the `carService.findCars()` method).
+To ensure that the search results are automatically updated whenever the query parameters change, we can use the `pipe` and `switchMap` operators on the `queryParams$` observable. The `switchMap` operator is used because it allows us to return another observable (in this case, the observable of search results returned by the `carService.findCars()` method).
 
 ```typescript
 carService = inject(CarService);
@@ -239,9 +239,9 @@ results$: Observable<Car[]> = this.queryParams$.pipe(
 );
 ```
 
-To use both the search results (`results$`) and the search filters (`queryParams$`) in the template, we can create a [ViewModel](https://blog.simplified.courses/reactive-viewmodels-for-ui-components-in-angular/){:target="_blank"} that `combineLatest`()` with both observables.
+To use both the search results (`results$`) and the search filters (`queryParams$`) in the template, we can create a [ViewModel](https://blog.simplified.courses/reactive-viewmodels-for-ui-components-in-angular/){:target="_blank"} that `combineLatest` with both observables.
 
-Using the `map()` operator, we can transform the array of params and result into a `PageViewModel` object.
+Using the `map` operator, we can transform the array of params and result into a `PageViewModel` object.
 
 ```typescript
 
@@ -289,7 +289,7 @@ Thanks to the `vm$` View Model we have only 1 `async` pipe in the template and s
 
 The last thing we need to do in the `AppComponent` is, add the filters (name, brand and name) to the URL as query parameters whenever the filters change. Luckily we have defined an `@Output()` in the `SearchFilterComponent` which emits whenever the filters change.
 
-To update the query parameters of the current route without navigating to a new route, we can use the `Router` service and pass an empty array as the first parameter. The property queryParamsHandling: 'merge' allows us to merge the new query parameters with the existing ones. 
+To update the query parameters of the current route without navigating to a new route, we can use the `Router` service and pass an empty array as the first parameter. The property `queryParamsHandling: 'merge'` allows us to merge the new query parameters with the existing ones. 
 
 ```typescript
   public filterChanged(filter: CarFilter): void {
@@ -371,7 +371,7 @@ export class AppComponent {
 
 
 ## Conclusion
-- Now we know the different techniques for storing state in the URL: query and route parameters and fragments.
+- Now we know the different techniques for storing state in the URL: query, route parameters and fragments.
 - To subscribe to changes in query parameters, we can use the `ActivatedRoute` service.
 - We can use the `queryParamsHandling` property to specify how the `Router` should merge new query parameters with the existing ones when navigating to a new route. By setting `queryParamsHandling: 'merge'`, we can merge the new query parameters with the existing ones.
 - We saw how the `ViewModel` approach makes our templates cleaner.
@@ -383,5 +383,5 @@ Here you check out the full Stackblitz demo:
 
 Special thanks to the reviewers:
 - [Brecht Billiet](https://twitter.com/brechtbilliet){:target="_blank"}
-- [Steff Beckers](https://steffbeckers.eu/){:target="_blank"}
+- [Steff Beckers](https://steffbeckers.eu){:target="_blank"}
 
