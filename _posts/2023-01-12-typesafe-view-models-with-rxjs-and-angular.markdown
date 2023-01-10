@@ -37,7 +37,7 @@ So let's import this function in the `app.component.ts`.
 import { vm } from '@bryanhannes/typed-view-model';
 ```
 
-Now we want to use the `vm<T>()` function to create the `vm$` observable. In the documentation of the NPM package is shown the following example:
+Now we want to use this `vm` function to create the `vm$` observable. In the documentation of the NPM package is shown the following example:
 ```typescript
 interface PageViewModel {
     name: string;
@@ -57,7 +57,7 @@ const vm$ = vm<PageViewModel>({
 ```
 
 From the example, we can see
-- that the `vm<T>()` function takes in an object with the same property keys as `PageViewModel`. If we add a property that is not in `PageViewModel` we get a compilation error. That is the typesafe view model we are talking about. 
+- that the `vm()` function takes in an object with the same property keys as `PageViewModel`. If we add a property that is not in `PageViewModel` we get a compilation error. That is the typesafe view model we are talking about. 
 - that the value object has 2 properties
   - `observable` should be of type `Observable<K>` where `K` is of the same type as the corresponding property in the `PageViewModel`
   - `initialValue` should be of the same type as the corresponding property in the `PageViewModel`
@@ -80,10 +80,10 @@ const vm$ = vm<PageViewModel>({
 });
 ```
  
-Now let's test this `vm<T>()` function out. 
+Now let's test this `vm()` function out. 
 First, let's refactor the name `queryParams$` to `filter$` because this name is more appropriate.
-We add the `vm<T>()` method in the same manner as the example.
-We also added `map()` operators to map the fields of `CarFilter` to the corresponding property.
+We add the `vm()` function in the same manner as in the example.
+We also added `map` operators to map the fields of `CarFilter` to the corresponding property.
 
 ```typescript
 // Renamed from `queryParams$` to `filter$`
@@ -117,8 +117,8 @@ public readonly vm$ = vm<PageViewModel>({
 
 Congratulations, we just created a typesafe view model!
 
-## Creating custom RxJS `map()` operators
-A final improvement we can do to improve the readability of our code is adding custom RxJS `map()` operators.
+## Creating custom RxJS `map` operators
+A final improvement we can do to improve the readability of our code is adding custom RxJS `map` operators.
 
 
 ```typescript
