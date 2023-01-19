@@ -6,6 +6,7 @@ published: true
 comments: true
 categories: Angular OpenAI 
 cover: assets/building-image-generator-with-openai-and-angular/building-image-generator-with-openai-and-angular.png
+tags: [Angular, Open AI]
 ---
 
 This video will cover how to code a simple Image Generator application from scratch using Angular for the frontend and NodeJS and Express for the backend. To generate the images from a text prompt, we’ll use the Open AI Images API.

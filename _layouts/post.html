@@ -33,5 +33,44 @@ layout: default
         <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
     </article>
 
-{%- include sendblue-subscribe.html -%}
+    {%- include sendblue-subscribe.html -%}
+
+    <section class="relevant-posts">
+
+        {% assign tags = page.tags %}
+        {% assign tag = tags[0] %}
+        {% assign posts = site.posts %}
+
+        <h2>Relevant Posts</h2>
+        <ul class="post-list">
+            {% for post in posts %}
+                {% if post.tags contains tag %}
+                    {% unless post.url == page.url %}
+                        <li class="post-list__post">
+                            <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+                                <img src="/{{post.cover}}" alt="{{ post.title }}">
+                                <footer class="post-meta">
+                                    <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
+                                    <!-- author -->
+                                    &nbsp;Bryan Hannes&nbsp;|&nbsp;
+                                    <time class="post-date" datetime="{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date_to_string
+                                        }}
+                                    </time>
+                                </footer>
+                                <div class="post-list__post-content">
+                                    <h3>{{ post.title }}</h3>
+                                    <p>{{ post.description }}</p>
+                                    {%- if site.show_excerpts -%}
+                                        {{ post.excerpt }}
+                                    {%- endif -%}
+                                </div>
+                            </a>
+                        </li>
+                    {% endunless %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </section>
+
 </div>

@@ -6,6 +6,7 @@ published: true
 comments: true
 categories: Qwik
 cover: assets/running-qwik-in-docker-without-dockerfile-buildpack/running-qwik-in-docker-without-dockerfile-buildpack.png
+tags: [Qwik]
 ---
 
 In this tutorial, we are going to create an OCI image (Docker image) from a Qwik application without providing a Dockerfile. We can do this with a tool called [Buildpacks](https://buildpacks.io/){:target="_blank"}.

@@ -6,6 +6,7 @@ published: true
 comments: true
 categories: Angular
 cover: assets/externalize-angular-configuration/externalize-configuration-angular-cover.png
+tags: [Angular]
 ---
 
 Did you know that you can externalize your environment configuration in Angular? 
