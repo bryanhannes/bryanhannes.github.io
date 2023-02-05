@@ -8,6 +8,7 @@ comments: true
 categories: Qwik
 cover: assets/running-qwik-in-docker/running-qwik-in-docker-cover.png
 tags: [Qwik, Docker]
+type: article
 ---
 
 In this tutorial, we are going to set up a new Qwik project, build a Docker image from our Qwik project and run the Docker image on our local machine.
@@ -219,19 +220,19 @@ Now we should be able to access the Qwik application which is running in Docker 
 <img src="/assets/running-qwik-in-docker/qwik-running-in-docker.jpg" alt="Qwik running on Docker" title="Qwik running on Docker">
 
 
-# Conclusion
+## Conclusion
 Congratulations, we just ran a newly created Qwik project in Docker
 Now that we have our Docker image we can easily deploy it to the cloud with eg. Google Cloud Run.
 
-# Note from author
+## Note from author
 I hope you enjoyed this blog article and learned a thing or two. Feel free to leave any remarks/improvements/feedback in the comments or hit me up on <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Feeling proud 💪<br>I finished my first blog post ever today: Tutorial: Running <a href="https://twitter.com/QwikDev?ref_src=twsrc%5Etfw">@QwikDev</a> in a <a href="https://twitter.com/Docker?ref_src=twsrc%5Etfw">@Docker</a> container&quot;<br><br>Find the blog article here:<a href="https://t.co/RyoYxAfr5G">https://t.co/RyoYxAfr5G</a><br><br>Hope you enjoy it and feedback is always welcome 😍</p>&mdash; Bryan Hannes (@BryanHannes) <a href="https://twitter.com/BryanHannes/status/1599790550491987969?ref_src=twsrc%5Etfw">December 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-# Video
+## Video
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/knKeJDGTNpk" title="Tutorial: Running Qwik in a Docker container" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Reviewers
+## Reviewers
 Special thanks to the reviewer: <a href="https://twitter.com/brechtbilliet" target="_blank">Brecht Billiet</a> from <a href="https://simplified.courses/" target="_blank">Simplified Courses</a>
 

@@ -4,7 +4,7 @@
 
 $base-font-family: 'montserrat', sans-serif !default;
 $base-font-size:   16px !default;
-$base-font-weight: 400 !default;
+$base-font-weight: 600 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
@@ -14,6 +14,8 @@ $text-color:       #111 !default;
 $background-color: #fdfdfd !default;
 $background-color-light: #F8FAFC !default;
 $brand-color:      #F04C26 !default;
+$brand-color-dark:  darken($brand-color, 25%) !default;
+$brand-color-light:  lighten($brand-color, 25%) !default;
 $dark-brand-color: #202126 !default;
 
 $grey-color:       #828282 !default;

@@ -5,20 +5,37 @@ layout: default
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
             <header class="post-header">
                 <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-                <p class="post-meta">
-                    <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
-                    &nbsp;Written by Bryan Hannes&nbsp;
-                    <a href="https://twitter.com/bryanhannes" target="_blank">@bryanhannes</a>&nbsp;on&nbsp;
-                    <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                        {{ page.date | date: date_format }}
-                    </time>
-                    {%- if page.author -%}
-                    • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
-                                                                                                  itemprop="name">Bryan Hannes</span></span>
-                    {%- endif -%}
-                </p>
+
+                {% if page.tags %}
+                <div class="tags">
+                    {% for tag in page.tags %}
+                    <!--                            <a href="/tags/{{ tag | slugify }}/index.html" class="tag">{{ tag }}</a>-->
+                    <span>{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!--  Only show when post is article -->
+                {%- if page.type == 'article' -%}
                 <img class="post-image" src="/{{page.cover}}" alt="{{ page.title | escape }}">
+
+
+                <p class="post-meta">
+                        <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
+                        &nbsp;Written by Bryan Hannes&nbsp;
+                        <a href="https://twitter.com/bryanhannes" target="_blank">@bryanhannes</a>&nbsp;on&nbsp;
+                        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                            {{ page.date | date: date_format }}
+                        </time>
+                        {%- if page.author -%}
+
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Bryan Hannes</span></span>
+                            {%- endif -%}
+                    </p>
+                {%- endif -%}
+
+
 
             </header>
 
@@ -42,6 +59,7 @@ layout: default
         {% assign posts = site.posts %}
 
         <h2>Relevant Posts</h2>
+        <hr class="line" />
         <ul class="post-list">
             {% for post in posts %}
                 {% if post.tags contains tag %}
@@ -49,20 +67,25 @@ layout: default
                         <li class="post-list__post">
                             <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
                                 <img src="/{{post.cover}}" alt="{{ post.title }}">
-                                <footer class="post-meta">
-                                    <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
-                                    <!-- author -->
-                                    &nbsp;Bryan Hannes&nbsp;|&nbsp;
-                                    <time class="post-date" datetime="{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date_to_string
-                                        }}
-                                    </time>
-                                </footer>
                                 <div class="post-list__post-content">
                                     <h3>{{ post.title }}</h3>
                                     <p>{{ post.description }}</p>
                                     {%- if site.show_excerpts -%}
                                         {{ post.excerpt }}
                                     {%- endif -%}
+
+                                    <div class="post-list__post-read-more__wrapper">
+                                        <span class="post-list__post-read-more__button">
+                                            <span class="post-list__post-read-more__wrapper">
+                                           {%- if post.type == 'video' -%}
+                                                Watch Video
+                                            {%- else -%}
+                                                Learn More
+                                            {%- endif -%}
+                                            </span>
+                                            <svg aria-hidden="true" class="post-list__post-read-more__button__icon" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M9 4l8 8-8 8" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        </span>
+                                    </div>
                                 </div>
                             </a>
                         </li>

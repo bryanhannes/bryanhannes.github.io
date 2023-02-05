@@ -7,6 +7,7 @@ comments: true
 categories: Angular
 cover: assets/reactively-storing-and-retrieving-url-state-in-angular/reactively-storing-and-retrieving-url-state-in-angular.png
 tags: [Angular]
+type: article
 ---
 
 In this article, we'll explore different techniques you can use to store state in the URL, including query parameters and route parameters. We also build an application that saves search filters in the URL.

@@ -14,17 +14,6 @@ layout: default
             <li class="post-list__post">
                 <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
                     <img src="/{{post.cover}}" alt="{{ post.title }}">
-                    <footer class="post-meta">
-
-                        <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
-                        <!-- author -->
-                        &nbsp;Bryan Hannes&nbsp;|&nbsp;
-
-
-                        <time class="post-date" datetime="{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date_to_string
-                            }}
-                        </time>
-                    </footer>
                     <div class="post-list__post-content">
                         <h3>{{post.title}}</h3>
                         <p>{{post.description}}</p>
@@ -32,6 +21,20 @@ layout: default
                         {%- if site.show_excerpts -%}
                         {{ post.excerpt }}
                         {%- endif -%}
+
+                        <div class="post-list__post-read-more__wrapper">
+                            <span class="post-list__post-read-more__button">
+                                <span class="post-list__post-read-more__wrapper">
+                               {%- if post.type == 'video' -%}
+                             Watch Video
+                            {%- else -%}
+                                    Learn More
+                            {%- endif -%}
+
+                                </span>
+                                <svg aria-hidden="true" class="post-list__post-read-more__button__icon" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M9 4l8 8-8 8" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </span>
+                        </div>
                     </div>
                 </a>
             </li>

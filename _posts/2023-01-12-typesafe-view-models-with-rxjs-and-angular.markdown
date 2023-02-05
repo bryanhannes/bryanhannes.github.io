@@ -7,6 +7,7 @@ comments: true
 categories: Angular
 cover: assets/typesafe-view-models-with-rxjs-and-angular/typesafe-view-models-with-rxjs-and-angular.png
 tags: [Angular, RxJS]
+type: article
 ---
 
 In this article, we are going to improve the code from a [previous blog article](/reactively-storing-and-retrieving-url-state-in-angular/) by making the view model typesafe. We will do this with an NPM package specially created for this article called [`@bryanhannes/typed-view-model`](https://www.npmjs.com/package/@bryanhannes/typed-view-model){:target="_blank"}. In this NPM package is a function that will help us to create typesafe view models.
