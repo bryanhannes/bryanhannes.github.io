@@ -42,6 +42,16 @@ layout: default
             <div class="post-content e-content" itemprop="articleBody">
                 {{ content }}
             </div>
+            
+            <div class="post-footer">
+                Notice a typo or some other issue? Feel free to submit a PR.
+
+                <a href="https://github.com/bryanhannes/bryanhannes.github.io/blob/gh-pages/{{ page.path }}" target="_blank">
+                    <svg class="svg-icon">
+                        <use xlink:href="/assets/social-icons.svg#github"></use>
+                    </svg>
+                </a>
+            </div>
 
         {%- if site.disqus.shortname -%}
         {%- include disqus_comments.html -%}
@@ -50,15 +60,13 @@ layout: default
         <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
     </article>
 
-    {%- include sendblue-subscribe.html -%}
-
     <section class="relevant-posts">
 
         {% assign tags = page.tags %}
         {% assign tag = tags[0] %}
         {% assign posts = site.posts %}
 
-        <h2>Relevant Posts</h2>
+        <h2>Other articles you might like</h2>
         <hr class="line" />
         <ul class="post-list">
             {% for post in posts %}
@@ -95,5 +103,8 @@ layout: default
         </ul>
 
     </section>
+
+    {%- include sendblue-subscribe.html -%}
+
 
 </div>
