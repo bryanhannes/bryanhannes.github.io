@@ -11,22 +11,13 @@
  * Site header
  */
 .site-header {
-  min-height: $spacing-unit * 1.865;
-  // Positioning context for the mobile navigation icon
-  position: relative;
-  background-color: transparent;
-
-  .container {
-    background-color: $background-color-light;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+  background: $white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -69,18 +60,6 @@
       }
     }
   }
-
-  &__socials {
-    display: none;
-
-    svg {
-      fill: $dark-brand-color
-    }
-
-    @media screen and (min-width: 768px) {
-      display: block;
-    }
-  }
 }
 
 
@@ -114,7 +93,6 @@
   display: block;
   @include relative-font-size(1.5);
 }
-
 
 
 /**
@@ -235,12 +213,8 @@
 
 .footer {
   &-wrapper {
-    .container {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      background: #202126;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+    background: $dark-brand-color;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   padding-top: 20px;
@@ -249,6 +223,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  font-weight: 500;
 
   @media screen and (min-width: 800px) {
     justify-content: space-between;

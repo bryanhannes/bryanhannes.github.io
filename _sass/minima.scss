@@ -3,32 +3,33 @@
 // Define defaults for each variable.
 
 $base-font-family: 'montserrat', sans-serif !default;
-$base-font-size:   16px !default;
+$base-font-size: 16px !default;
 $base-font-weight: 600 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
+$small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
-$spacing-unit:     30px !default;
+$spacing-unit: 30px !default;
 
-$text-color:       #111 !default;
+$text-color: #111 !default;
 $background-color: #fdfdfd !default;
 $background-color-light: #F8FAFC !default;
-$brand-color:      #F04C26 !default;
-$brand-color-dark:  darken($brand-color, 25%) !default;
-$brand-color-light:  lighten($brand-color, 25%) !default;
-$dark-brand-color: #202126 !default;
+$brand-color: #F04C26 !default;
+$brand-color-dark: darken($brand-color, 25%) !default;
+$brand-color-light: lighten($brand-color, 25%) !default;
+$dark-brand-color: #27221D !default;
+$white: #fff !default;
 
-$grey-color:       #828282 !default;
+$grey-color: #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-color-dark: darken($grey-color, 25%) !default;
 
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    1040px !default;
+$content-width: 1040px !default;
 
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-palm: 600px !default;
+$on-laptop: 800px !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -48,8 +49,6 @@ $on-laptop:        800px !default;
 }
 
 // Import partials.
-@import
-  "minima/base",
-  "minima/layout",
-  "minima/syntax-highlighting"
-;
+@import "minima/base",
+"minima/layout",
+"minima/syntax-highlighting";

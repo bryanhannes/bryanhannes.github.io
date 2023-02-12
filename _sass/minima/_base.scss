@@ -21,9 +21,9 @@ body {
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-       -o-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: flex;
   min-height: 100vh;
@@ -41,14 +41,12 @@ ul, ol, dl, figure,
 }
 
 
-
 /**
  * `main` element
  */
 main {
   display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
 }
-
 
 
 /**
@@ -58,7 +56,6 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-
 
 
 /**
@@ -71,7 +68,6 @@ figure > img {
 figcaption {
   font-size: $small-font-size;
 }
-
 
 
 /**
@@ -89,7 +85,6 @@ li {
 }
 
 
-
 /**
  * Headings
  */
@@ -97,7 +92,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 
 }
-
 
 
 /**
@@ -143,7 +137,6 @@ blockquote {
 }
 
 
-
 /**
  * Code formatting
  */
@@ -168,7 +161,6 @@ pre {
     padding-left: 0;
   }
 }
-
 
 
 /**
@@ -200,7 +192,6 @@ pre {
 }
 
 
-
 /**
  * Icons
  */
@@ -209,7 +200,7 @@ pre {
   width: 16px;
   height: 16px;
   display: inline-block;
-  fill: #{$grey-color};
+  fill: $white;
   padding-right: 5px;
   vertical-align: text-top;
 }
@@ -230,19 +221,23 @@ table {
   color: lighten($text-color, 18%);
   border-collapse: collapse;
   border: 1px solid $grey-color-light;
+
   tr {
     &:nth-child(even) {
       background-color: lighten($grey-color-light, 6%);
     }
   }
+
   th, td {
     padding: ($spacing-unit / 3) ($spacing-unit / 2);
   }
+
   th {
     background-color: lighten($grey-color-light, 3%);
     border: 1px solid darken($grey-color-light, 4%);
     border-bottom-color: darken($grey-color-light, 12%);
   }
+
   td {
     border: 1px solid $grey-color-light;
   }
