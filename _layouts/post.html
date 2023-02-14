@@ -2,56 +2,74 @@
 layout: default
 ---
 <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-            <header class="post-header">
-                <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+            <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
 
-                {% if page.tags %}
-                <div class="tags">
-                    {% for tag in page.tags %}
-                    <!--                            <a href="/tags/{{ tag | slugify }}/index.html" class="tag">{{ tag }}</a>-->
-                    <span>{{ tag }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
+            {% if page.tags %}
+            <div class="tags">
+                {% for tag in page.tags %}
+                <!--                            <a href="/tags/{{ tag | slugify }}/index.html" class="tag">{{ tag }}</a>-->
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
 
-                <!--  Only show when post is article -->
-                {%- if page.type == 'article' -%}
-                <img class="post-image" src="/{{page.cover}}" alt="{{ page.title | escape }}">
+            <!--  Only show when post is article -->
+            {%- if page.type == 'article' -%}
+            <picture>
+                <source
+                        type="image/avif"
+                        srcset="/{{page.cover}}@500.avif 500w, /{{page.cover}}@1000.avif 1000w"/>
+                <source
+                        type="image/webp"
+                        srcset="/{{page.cover}}@500.webp 500w, /{{page.cover}}@1000.webp 1000w"/>
+                <img
+                        src="/{{page.cover}}@500.jpg"
+                        srcset="/{{page.cover}}@500.jpg 500w, /{{page.cover}}@1000.jpg 1000w"
+                        sizes="(max-width: 500px) 500w, 1000w"
+                        style="width: 100%; aspect-ratio: 16/9"
+                        loading="lazy"
+                        decoding="async"
+                        alt="{{ page.title | escape }}"
+                />
+            </picture>
 
 
-                <p class="post-meta">
-                        <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes" nopin="nopin"/>
-                        &nbsp;Written by Bryan Hannes&nbsp;
-                        <a href="https://twitter.com/bryanhannes" target="_blank">@bryanhannes</a>&nbsp;on&nbsp;
-                        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                            {{ page.date | date: date_format }}
-                        </time>
-                        {%- if page.author -%}
+            <p class="post-meta">
+                <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes"
+                     nopin="nopin"/>
+                &nbsp;Written by Bryan Hannes&nbsp;
+                <a href="https://twitter.com/bryanhannes" target="_blank">@bryanhannes</a>&nbsp;on&nbsp;
+                <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                    {{ page.date | date: date_format }}
+                </time>
+                {%- if page.author -%}
 
-                                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Bryan Hannes</span></span>
-                            {%- endif -%}
-                    </p>
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+                                                                                            itemprop="name">Bryan Hannes</span></span>
                 {%- endif -%}
+            </p>
+            {%- endif -%}
 
 
+        </header>
 
-            </header>
+        <div class="post-content e-content" itemprop="articleBody">
+            {{ content }}
+        </div>
 
-            <div class="post-content e-content" itemprop="articleBody">
-                {{ content }}
-            </div>
-            
-            <div class="post-footer">
-                Notice a typo or some other issue? Feel free to submit a PR.
+        <div class="post-footer">
+            Notice a typo or some other issue? Feel free to submit a PR.
 
-                <a href="https://github.com/bryanhannes/bryanhannes.github.io/blob/gh-pages/{{ page.path }}" target="_blank">
-                    <svg class="svg-icon">
-                        <use xlink:href="/assets/social-icons.svg#github"></use>
-                    </svg>
-                </a>
-            </div>
+            <a href="https://github.com/bryanhannes/bryanhannes.github.io/blob/gh-pages/{{ page.path }}"
+               target="_blank">
+                <svg class="svg-icon">
+                    <use xlink:href="/assets/social-icons.svg#github"></use>
+                </svg>
+            </a>
+        </div>
 
         {%- if site.disqus.shortname -%}
         {%- include disqus_comments.html -%}
@@ -67,22 +85,39 @@ layout: default
         {% assign posts = site.posts %}
 
         <h2>Other articles you might like</h2>
-        <hr class="line" />
+        <hr class="line"/>
         <ul class="post-list">
             {% for post in posts %}
-                {% if post.tags contains tag %}
-                    {% unless post.url == page.url %}
-                        <li class="post-list__post">
-                            <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
-                                <img src="/{{post.cover}}" alt="{{ post.title }}">
-                                <div class="post-list__post-content">
-                                    <h3>{{ post.title }}</h3>
-                                    <p>{{ post.description }}</p>
-                                    {%- if site.show_excerpts -%}
-                                        {{ post.excerpt }}
-                                    {%- endif -%}
+            {% if post.tags contains tag %}
+            {% unless post.url == page.url %}
+            <li class="post-list__post">
+                <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+                    <picture>
+                        <source
+                                type="image/avif"
+                                srcset="/{{post.cover}}@500.avif 500w, /{{post.cover}}@1000.avif 1000w"/>
+                        <source
+                                type="image/webp"
+                                srcset="/{{post.cover}}@500.webp 500w, /{{post.cover}}@1000.webp 1000w"/>
+                        <img
+                                src="/{{post.cover}}@500.jpg"
+                                srcset="/{{post.cover}}@500.jpg 500w, /{{post.cover}}@1000.jpg 1000w"
+                                sizes="500w"
+                                style="width: 100%; aspect-ratio: 16/9"
+                                loading="lazy"
+                                decoding="async"
+                                alt="{{ post.title | escape }}"
+                        />
+                    </picture>
 
-                                    <div class="post-list__post-read-more__wrapper">
+                    <div class="post-list__post-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.description }}</p>
+                        {%- if site.show_excerpts -%}
+                        {{ post.excerpt }}
+                        {%- endif -%}
+
+                        <div class="post-list__post-read-more__wrapper">
                                         <span class="post-list__post-read-more__button">
                                             <span class="post-list__post-read-more__wrapper">
                                            {%- if post.type == 'video' -%}
@@ -91,14 +126,18 @@ layout: default
                                                 Learn More
                                             {%- endif -%}
                                             </span>
-                                            <svg aria-hidden="true" class="post-list__post-read-more__button__icon" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M9 4l8 8-8 8" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                            <svg aria-hidden="true" class="post-list__post-read-more__button__icon"
+                                                 viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2"
+                                                                           d="M9 4l8 8-8 8" fill="none"
+                                                                           fill-rule="evenodd" stroke-linecap="round"
+                                                                           stroke-linejoin="round"></path></svg>
                                         </span>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    {% endunless %}
-                {% endif %}
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {% endunless %}
+            {% endif %}
             {% endfor %}
         </ul>
 

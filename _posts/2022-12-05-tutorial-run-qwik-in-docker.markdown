@@ -6,31 +6,36 @@ categories: Qwik
 published: true
 comments: true
 categories: Qwik
-cover: assets/running-qwik-in-docker/running-qwik-in-docker-cover.png
+cover: assets/running-qwik-in-docker/running-qwik-in-docker
 tags: [Qwik, Docker]
 type: article
 ---
 
-In this tutorial, we are going to set up a new Qwik project, build a Docker image from our Qwik project and run the Docker image on our local machine.
+In this tutorial, we are going to set up a new Qwik project, build a Docker image from our Qwik project and run the
+Docker image on our local machine.
 
 At the time of writing the latest version of Qwik is 0.15.0 and Qwik City 0.0.127.
 
 Let's assume that you have NPM, Node and Docker installed already.
 
 ## Generate Qwik project
+
 We start with generating a new Qwik project.
-We can follow the steps in the <a href="https://qwik.builder.io/docs/getting-started/" target="_blank">Qwik getting started guide</a> or follow the steps below.
+We can follow the steps in the <a href="https://qwik.builder.io/docs/getting-started/" target="_blank">Qwik getting
+started guide</a> or follow the steps below.
 
 Open a terminal and run the following command
 
 ```shell
 npm create qwik@latest
 ```
+
 The CLI will prompt for an application name, we are going to name our application: `qwik-docker`
 
 Select the  `Basic App (QwikCity)` starter and install the npm dependencies.
 
 The terminal should look like this:
+
 ```shell
 🐰 Let's create a Qwik app 🐇   v0.15.0
 
@@ -64,6 +69,7 @@ The terminal should look like this:
 ```
 
 ## Run the newly generate Qwik project locally
+
 Now we are going to check if the new Qwik project runs locally.
 We are going to navigate to the newly created project and start the local development environment.
 
@@ -77,6 +83,7 @@ Open a browser and go to <a href="http://localhost:5174" target="_blank">http://
 <img src="/assets/running-qwik-in-docker/new-qwik-project.jpg" alt="Newly generated Qwik project" title="Newly generated Qwik project">
 
 ## Adding the Express adaptor
+
 The next step is to add the Express adaptor.
 
 Run the following command in the terminal and select `Yes looks good, finish update!`
@@ -110,6 +117,7 @@ npm run qwik add express
 ```
 
 When Express is successfully installed we should see a success message in the terminal and 2 files should be created:
+
 - `adaptors/express/vite.config.ts`
 - `src/entry.express.tsx`
 
@@ -118,12 +126,9 @@ When Express is successfully installed we should see a success message in the te
 🦄  Success!  Added express to your app
 ```
 
-
-
 The `entry.express.tsx` file is going to be the startup file of the application.
 
 <img src="/assets/running-qwik-in-docker/results-after-express-installed.jpg" alt="Generated Express Adaptor folder structure" title="Generated Express Adaptor folder structure">
-
 
 ## Creating the dockerfile
 
@@ -170,6 +175,7 @@ CMD [ "node", "server/entry.express"]
 ```
 
 ## Building and running the project in Docker
+
 The moment we are waiting for is finally here, we are going to build the Docker image.
 
 - Make sure the Docker daemon is running
@@ -219,13 +225,15 @@ Now we should be able to access the Qwik application which is running in Docker 
 
 <img src="/assets/running-qwik-in-docker/qwik-running-in-docker.jpg" alt="Qwik running on Docker" title="Qwik running on Docker">
 
-
 ## Conclusion
+
 Congratulations, we just ran a newly created Qwik project in Docker
 Now that we have our Docker image we can easily deploy it to the cloud with eg. Google Cloud Run.
 
 ## Note from author
-I hope you enjoyed this blog article and learned a thing or two. Feel free to leave any remarks/improvements/feedback in the comments or hit me up on <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
+
+I hope you enjoyed this blog article and learned a thing or two. Feel free to leave any remarks/improvements/feedback in
+the comments or hit me up on <a href="https://twitter.com/BryanHannes" target="_blank">Twitter</a>.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Feeling proud 💪<br>I finished my first blog post ever today: Tutorial: Running <a href="https://twitter.com/QwikDev?ref_src=twsrc%5Etfw">@QwikDev</a> in a <a href="https://twitter.com/Docker?ref_src=twsrc%5Etfw">@Docker</a> container&quot;<br><br>Find the blog article here:<a href="https://t.co/RyoYxAfr5G">https://t.co/RyoYxAfr5G</a><br><br>Hope you enjoy it and feedback is always welcome 😍</p>&mdash; Bryan Hannes (@BryanHannes) <a href="https://twitter.com/BryanHannes/status/1599790550491987969?ref_src=twsrc%5Etfw">December 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -234,5 +242,7 @@ I hope you enjoyed this blog article and learned a thing or two. Feel free to le
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/knKeJDGTNpk" title="Tutorial: Running Qwik in a Docker container" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Reviewers
-Special thanks to the reviewer: <a href="https://twitter.com/brechtbilliet" target="_blank">Brecht Billiet</a> from <a href="https://simplified.courses/" target="_blank">Simplified Courses</a>
+
+Special thanks to the reviewer: <a href="https://twitter.com/brechtbilliet" target="_blank">Brecht Billiet</a>
+from <a href="https://simplified.courses/" target="_blank">Simplified Courses</a>
 

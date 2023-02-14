@@ -13,7 +13,25 @@ layout: default
             {%- for post in site.posts -%}
             <li class="post-list__post">
                 <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
-                    <img src="/{{post.cover}}" alt="{{ post.title }}">
+<!--                    <img src="/{{post.cover}}" alt="{{ post.title }}">-->
+                    <picture>
+                        <source
+                                type="image/avif"
+                                srcset="/{{post.cover}}@500.avif 500w, /{{post.cover}}@1000.avif 1000w" />
+                        <source
+                                type="image/webp"
+                                srcset="/{{post.cover}}@500.webp 500w, /{{post.cover}}@1000.webp 1000w" />
+                        <img
+                                src="/{{post.cover}}@500.jpg"
+                                srcset="/{{post.cover}}@500.jpg 500w, /{{post.cover}}@1000.jpg 1000w"
+                                sizes="(max-width: 500px) 500, 1000w"
+                                style="width: 100%; aspect-ratio: 16/9"
+                                loading="lazy"
+                                decoding="async"
+                                alt="{{ post.title | escape  }}"
+                        />
+                    </picture>
+
                     <div class="post-list__post-content">
                         <h3>{{post.title}}</h3>
                         <p>{{post.description}}</p>
