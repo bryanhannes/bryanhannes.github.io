@@ -7,11 +7,41 @@
             <a href="https://bryanhannes.com">
                 <img class="header__logo" src="/assets/bryan-hannes-logo.svg" alt="Bryan Hannes logo">
             </a>
-            <ul class="header__menu">
-                <li class="header__menu__item"><a href="https://bryanhannes.com/">Home</a></li>
-                <li class="header__menu__item"><a href="https://bryanhannes.com/about/">About me</a></li>
-                <li class="header__menu__item"><a href="/">Blog</a></li>
-            </ul>
+
+            <div>
+                <button
+                        id="hamburger-button"
+                        type="button"
+                        class="header__mobile-button"
+                >
+                    <span class="sr-only">Open navigation</span>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                                d="M3.75 12h16.5M3.75 6.75h16.5M3.75 17.25h16.5"
+                                fill="none"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                        ></path>
+                    </svg>
+                </button>
+                <nav class="header__menu" aria-label="main">
+                    <a href="https://bryanhannes.com/">Home</a>
+                    <a href="https://bryanhannes.com/about/">About me</a>
+                    <a href="/">Blog</a>
+                </nav>
+            </div>
         </div>
     </div>
+
+    <section
+            id="mobile-menu"
+            class="header__mobile-menu animate-open-menu"
+    >
+        <button class="header__mobile-menu__close">&times;</button>
+        <nav aria-label="mobile">
+            <a href="https://bryanhannes.com/">Home</a>
+            <a href="https://bryanhannes.com/about/">About me</a>
+            <a href="/">Blog</a>
+        </nav>
+    </section>
 </header>

@@ -10,7 +10,7 @@ tags: [Angular]
 type: video
 ---
 
-
+ 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/4QfhEXN1Qms" title="Why you should externalize your Angular Configuration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Did you know that you can externalize your environment configuration in Angular?
