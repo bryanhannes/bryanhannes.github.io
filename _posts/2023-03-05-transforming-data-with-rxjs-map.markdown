@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Transforming data with the RxJS Map operator"
-date:   2023-03-04 10:00:00 +0100
+date:   2023-03-06 05:00:00 +0100
 published: true
 comments: true
 categories: Angular
