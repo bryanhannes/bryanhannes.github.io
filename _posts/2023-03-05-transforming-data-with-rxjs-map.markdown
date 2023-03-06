@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Transforming data with the RxJS Map operator"
-date:   2023-01-25 10:00:00 +0100
+date:   2023-03-04 10:00:00 +0100
 published: true
 comments: true
 categories: Angular
@@ -24,18 +24,16 @@ First, we import the `map` operator from `rxjs/operators`.
 import { map } from 'rxjs/operators'
 ```
 
-Next, we define our source observable `name$`, which is in our case an `Observable<string>` that will emit the value of `Angular`.
+Next, we define our source observable `name$`, which is in our case an `Observable<string>` that will emit the value of a string `'Angular'`.
 
 ```typescript
 name$: Observable<string> = of('Angular);
 ```
 
-Next, we will transform the name to a personalized greeting: `Hello Angular` with `map()`.
-
-We use `name$` as the source, we have to add the map operator inside of the `pipe()` operator
+Next, we will transform `name$` to a personalized greeting with the `map()` operator within a `pipe()`.
 
 ```typescript
-peronsalizedGreeting$: Observable<string> = name$.pipe(
+personalizedGreeting$: Observable<string> = name$.pipe(
     map((name) => `Hello ${name}`)
 );
 ```
@@ -57,9 +55,7 @@ The `nameWithGreetingAndExclamation$` observable will output `Hello Angular !` w
 
 ## Using `map()` operator with HTTP
 
-We can also use the `map()` operator to transform data that get returned from APIs.
-
-In this example, the API returns a list of users with a `firstName` and `lastName`, and we assign a property `fullName` based on the `firstName` and `lastName`.
+The `map()` operator can be used to transform data retrieved from APIs, as seen in this example. The API returns a list of users with both `firstName` and `lastName` properties. A `fullName` property is then assigned from the existing properties.
 
 ```typescript
 type User = {
@@ -92,12 +88,12 @@ export class App {
     );
 } 
 ```
-
+ 
 ## Using `map()` to transform an array
 
-When we use `map()` to transform an array we have to keep in mind that we are transforming the whole array, not the individual items in the array.
+When using the `map()` to transform an array, we have to keep in mind that we are transforming the whole array, not the individual items in the array.
 
-A nice workaround for this is to use the `Array.map()` function inside the RxJS `map()` operator.
+To work around this, the `Array.map()` function can be used inside the RxJS `map()` operator.
 
 ```typescript
 // Input
@@ -109,7 +105,8 @@ const names = [
 
 namesWithExclamation$: Observable<string[]> = of(names)
     .pipe(
-        // Note that the map operator gets the whole array of name here and not the individual items of the array
+        // Note that the map operator gets the whole array of name here 
+        // and not the individual items of the array
         map((names: string[]) => {
             // We can use `Array.map()` to transform all the items in the array
             return names.map((name) => `${name} !`);
@@ -123,6 +120,6 @@ namesWithExclamation$: Observable<string[]> = of(names)
 ```
 
 ## Conclusion 
-- The `map()` operator is a must-have for your RxJS toolbelt.
-- It can be used to transform data from one type to another, change or add properties
-- When we are transforming an array with `map()` we have to remember to use the array map function inside the Rxjs `map()` operator.
+- The `map()` operator is a must-have for your RxJS tool belt.
+- It can be used to transform data from one type to another or adding/changing properties.
+- When using `map()` to transform an array, remember to use the `Array.map()` function inside the RxJS `map()` operator.
