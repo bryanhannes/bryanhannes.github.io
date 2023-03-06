@@ -1,5 +1,5 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+# Only the main Sass file needs front matter(the dashes are enough)
 ---
 
 @import "minima";
@@ -25,11 +25,12 @@ body {
 
 .author-thumb {
   border-radius: 50%;
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: $brand-color;
 }
 
@@ -53,6 +54,10 @@ h1.post-title {
   padding-top: 20px;
 }
 
+h2 {
+  margin-top: 40px;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -65,7 +70,7 @@ section {
   margin-bottom: 2rem;
 }
 
-h1{
+h1 {
   padding-top: 20px;
   font-weight: 500;
   word-break: break-word;
@@ -102,9 +107,9 @@ h1{
   &__post {
     width: 100%;
     background: #fff;
-    box-shadow: 0 0 24px -5px rgba(0,0,0,0.10);
-    -webkit-box-shadow: 0 0 24px -5px rgba(0,0,0,0.10);
-    -moz-box-shadow: 0 0 24px -5px rgba(0,0,0,0.10);
+    box-shadow: 0 0 24px -5px rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 0 0 24px -5px rgba(0, 0, 0, 0.10);
+    -moz-box-shadow: 0 0 24px -5px rgba(0, 0, 0, 0.10);
     border-radius: 10px;
     transition: box-shadow 0.3s ease-in-out;
 
