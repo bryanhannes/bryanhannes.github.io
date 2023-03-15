@@ -19,8 +19,8 @@ In this NPM package is a function that will help us to create typesafe view mode
 ## Forking the repository
 
 We are going to use the Car catalog application from a previous article. We can fork the repository
-from [Stackblitz](https://stackblitz.com/edit/angular-ivy-y8vtzw?file=src%2Fapp%2Fapp.component.ts){:target="blank}
-or [GitHub](https://github.com/bryanhannes/car-catalog){:target="_blank}. In this article, we are going to use
+from [Stackblitz](https://stackblitz.com/edit/angular-ivy-y8vtzw?file=src%2Fapp%2Fapp.component.ts){:target="_blank"}
+or [GitHub](https://github.com/bryanhannes/car-catalog){:target="_blank"}. In this article, we are going to use
 the `Stackblitz repository`.
 
 ## Installing the NPM package

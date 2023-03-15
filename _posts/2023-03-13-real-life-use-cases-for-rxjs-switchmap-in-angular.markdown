@@ -54,7 +54,7 @@ export class CarBrandDetailComponent {
   );
 }
 ```
-Check out the full example on [Stackblitz]('https://stackblitz.com/edit/angular-fehknb?file=src/car-detail.component.ts'){:target="_blank}.
+Check out the full example on [Stackblitz](https://stackblitz.com/edit/angular-fehknb?file=src/car-detail.component.ts){:target="_blank"}.
 
 ## Typeahead with `switchMap()` and `ReactiveForms`
 
@@ -62,7 +62,7 @@ Check out the full example on [Stackblitz]('https://stackblitz.com/edit/angular-
 @Component({
   selector: 'my-app',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule], 
   providers: [CarService],
   template: `
   <input [formControl]="searchTermControl" type="text">
@@ -88,7 +88,9 @@ export class AppComponent {
     );
 }
 ```
-Check out the full example on [Stackblitz]('https://stackblitz.com/edit/angular-l3vtt1?file=src/main.ts'){:target="_blank}.
+Check out the full example on [Stackblitz](https://stackblitz.com/edit/angular-l3vtt1?file=src/main.ts){:target="_blank"}.
+
+
 
 ## Typeahead search with `switchMap()` and `BehaviorSubject`
 
@@ -123,7 +125,7 @@ export class AppComponent {
 }
 ```
 
-Check out the full example on [Stackblitz]('https://stackblitz.com/edit/angular-ygswzq?file=src/main.ts'){:target="_blank}.
+Check out the full example on [Stackblitz](https://stackblitz.com/edit/angular-ygswzq?file=src/main.ts){:target="_blank"}.
 
 ## Conclusion 
 - The `switchMap()` operator is used to transform an observable into another observable.
