@@ -9,7 +9,7 @@ cover: "assets/delaying-streams-with-debouncetime/delaying-streams-with-debounce
 tags: [Angular, RxJS]
 type: article
 ---
-
+ 
 The RxJS `debounceTime` operator delays values emitted by a source Observable. It does this by waiting for a specified amount of time called (in milliseconds) and then emitting the value when the specified amount of time has elapsed. 
 
 Unless a new value is emitted from the source Observable before the delay time is up, then it:

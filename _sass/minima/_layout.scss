@@ -193,20 +193,28 @@
   margin-bottom: $spacing-unit;
 
   h2 {
-    @include relative-font-size(1.5);
+    @include relative-font-size(1.6);
 
     font-weight: 600;
 
     @include media-query($on-laptop) {
       @include relative-font-size(1.75);
     }
+
+    code {
+      @include relative-font-size(1.6);
+    }
   }
 
   h3 {
-    @include relative-font-size(1.625);
+    @include relative-font-size(1.2);
 
     @include media-query($on-laptop) {
       @include relative-font-size(1.375);
+    }
+
+    code {
+      @include relative-font-size(1.2);
     }
   }
 
