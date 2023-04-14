@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "RxJS catchError"
+title:  "RxJS catchError: error handling"
 date:   2023-04-13 05:00:00 +0100
 published: true
 comments: true
