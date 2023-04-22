@@ -15,6 +15,8 @@ layout: default
             </div>
             {% endif %}
 
+            
+
             <!--  Only show when post is article -->
             {%- if page.type == 'article' -%}
             <picture>
@@ -36,21 +38,28 @@ layout: default
             </picture>
 
 
-            <p class="post-meta">
-                <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes"
-                     nopin="nopin"/>
-                &nbsp;Written by Bryan Hannes&nbsp;
-                <a href="https://twitter.com/bryanhannes" target="_blank">@bryanhannes</a>&nbsp;on&nbsp;
-                <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                    {{ page.date | date: date_format }}
-                </time>
-                {%- if page.author -%}
+            <div class="post-meta">
+                <div class="author-info">
+                    <img class="author-thumb" src="/assets/bryan-hannes.jpg" alt="Profile picture of Bryan Hannes"
+                         nopin="nopin"/>
+                    &nbsp;Written by Bryan Hannes&nbsp;
+                    <a href="https://twitter.com/bryanhannes" target="_blank">@bryanhannes</a>&nbsp;on&nbsp;
+                    <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                        {{ page.date | date: date_format }}
+                    </time>
+                    {%- if page.author -%}
 
-                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
-                                                                                            itemprop="name">Bryan Hannes</span></span>
-                {%- endif -%}
-            </p>
+                    <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+                                                                                                itemprop="name">Bryan Hannes</span></span>
+                    {%- endif -%}
+                </div>
+                <a class="button-share-twitter"
+                        href="https://twitter.com/intent/tweet?text=My+thoughts+on%3A+%22{{ page.title | url_encode }}%22+%F0%9F%91%89+{{ site.url }}{{ page.url }}{% for category in page.categories %}&hashtags={{ category }}{% endfor %}" target="_blank" rel="noopener noreferrer">
+                     <span class="icon icon--twitter">
+                        {% include icon-twitter.svg %}</span> Comment</a>
+            </div>
+
             {%- endif -%}
 
 
@@ -58,6 +67,13 @@ layout: default
 
         <div class="post-content e-content" itemprop="articleBody">
             {{ content }}
+        </div>
+
+        <div class="twitter-share-button-wrapper">
+            <a class="button-share-twitter"
+               href="https://twitter.com/intent/tweet?text=My+thoughts+on%3A+%22{{ page.title | url_encode }}%22+%F0%9F%91%89+{{ site.url }}{{ page.url }}{% for category in page.categories %}&hashtags={{ category }}{% endfor %}" target="_blank" rel="noopener noreferrer">
+                     <span class="icon icon--twitter">
+                        {% include icon-twitter.svg %}</span> Comment your thoughts on Twitter</a>
         </div>
 
         <div class="post-footer">
@@ -70,6 +86,8 @@ layout: default
                 </svg>
             </a>
         </div>
+
+
 
         {%- if site.disqus.shortname -%}
         {%- include disqus_comments.html -%}

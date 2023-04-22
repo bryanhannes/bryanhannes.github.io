@@ -29,6 +29,8 @@ body {
   height: 40px;
 }
 
+
+
 a,
 a:visited {
   color: $brand-color;
@@ -81,9 +83,25 @@ h1 {
 .post-meta {
   padding-top: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 1rem;
   align-items: center;
   font-size: 1rem;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  .author-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+  }
 }
 
 .post-image {
@@ -198,6 +216,38 @@ h1 {
 
     &:first-child {
       border-left: 8px solid $brand-color;
+    }
+  }
+}
+
+a.button-share-twitter {
+  background: #1da1f2;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: 0.3s ease-out;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    background: darken(#1da1f2, 10%);
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  svg {
+    path {
+      fill: white;
     }
   }
 }

@@ -227,6 +227,12 @@
   }
 }
 
+.twitter-share-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .post-footer {
   display: flex;
   flex-direction: column;
@@ -234,6 +240,7 @@
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
+  margin-top: 1rem;
 
   svg {
     transition: fill 0.3s;
