@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Angular + NGINX + Docker"
-date:   2023-05-15 05:00:00 +0100
+date:   2023-05-21 05:00:00 +0100
 published: true
 comments: true
 categories: Angular Docker
