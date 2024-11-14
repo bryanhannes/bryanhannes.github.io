@@ -163,8 +163,8 @@ Create `libs/shared/ui-icons/src/lib/icon.component.scss`:
 
 Update the generator files with the following content:
 
-1. `tools/nx-plugin/src/generators/icon-generator/generator.ts`:
 ```typescript
+// tools/nx-plugin/src/generators/icon-generator/generator.ts
 import * as path from 'path';
 import { execSync } from 'child_process';
 import { formatFiles, generateFiles, Tree } from '@nx/devkit';
@@ -195,10 +195,9 @@ export async function iconComponentGenerator(
 }
 
 export default iconComponentGenerator;
-```
 
-2. `tools/nx-plugin/src/generators/icon-generator/schema.d.ts`:
-```typescript
+// tools/nx-plugin/src/generators/icon-generator/schema.d.ts
+
 export interface IconComponentGeneratorSchema {
   componentName: string;
   selector: string;
@@ -206,7 +205,8 @@ export interface IconComponentGeneratorSchema {
 }
 ```
 
-3. `tools/nx-plugin/src/generators/icon-generator/schema.json`:
+`tools/nx-plugin/src/generators/icon-generator/schema.json`:
+
 ```json
 {
   "$schema": "http://json-schema.org/schema",
@@ -254,7 +254,8 @@ libs/shared/tools-icon-generator/src/lib/
 └── icons-source/    # Place your SVG files here
 ```
 
-2. Create `generate-icons.ts` in `libs/shared/tool-icon-generator/src/lib/`:
+2. Create `generate-icons.ts` in `libs/shared/tool-icon-generator/src/lib/`
+
 ```typescript
 import * as fs from 'fs';
 import * as path from 'path';
@@ -348,7 +349,8 @@ console.log(`🏁 Icon components generated under:`, `${targetFolderPath}/${targ
 
 ## Configuring build scripts
 
-1. Update `libs/shared/tool-icon-generator/project.json`:
+Update `libs/shared/tool-icon-generator/project.json`
+
 ```json
 {
   "targets": {
@@ -364,7 +366,8 @@ console.log(`🏁 Icon components generated under:`, `${targetFolderPath}/${targ
 }
 ```
 
-2. **Optional**: Add convenience scripts to your root `package.json`:
+**Optional**: Add convenience scripts to your root `package.json`
+
 ```json
 {
   "scripts": {
@@ -442,18 +445,18 @@ export class MyComponent {
 ### SVG source files 
 
 Have naming conventions for the icons, in a large company this naming needs to be consistent between the UX team and the developers.
-   ```
-   action-name.svg        // e.g., arrow-down.svg
-   object-name.svg        // e.g., shopping-cart.svg
-   state-name.svg        // e.g., check-circle.svg
-   ```
+```
+action-name.svg        // e.g., arrow-down.svg
+object-name.svg        // e.g., shopping-cart.svg
+state-name.svg        // e.g., check-circle.svg
+```
 ### Documentation
 - Create an overview of available icons with Storybook for example.
 - Add documentation for how to use the icon generator and generated components.
 
-## Development Workflow
+## Development workflow
 
-### Adding New Icons
+### Adding new icons
    ```bash
    # 1. Add SVG file to icons-source/
    # 2. Generate only new icons
