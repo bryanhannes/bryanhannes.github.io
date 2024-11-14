@@ -2,10 +2,10 @@
 layout: post
 title:  "Generating icon components from SVG files with NX and Angular"
 date:   2024-11-15 05:00:00 +0100
-published: false
+published: true
 comments: true
 categories: Angular NX
-cover: "assets/nx-angular-icons/nx-angular-icons"
+cover: "assets/svg-to-icon-components/svg-to-icon-components"
 tags: [Angular, NX]
 type: article
 ---
